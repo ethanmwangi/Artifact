@@ -102,3 +102,54 @@ const user = {
 // └─────────────────┴──────────┴────────┘
 
 // Memory hook: Method = function + object + this
+
+/* ========================================
+   CONSTRUCTORS
+   ======================================== */
+// Constructors are for creating and initializing objects.
+// We rarely use some of them (like Object()) directly because object literals are more readable,
+// but constructors are still important for structure and defensive programming.
+
+// 1️⃣ CONSTRUCTORS = OBJECT CREATORS
+// Any function used with 'new' is a constructor.
+
+function Person(name) {
+  this.name = name;
+}
+
+const p = new Person("Alice");
+
+// Constructors exist to create and initialize objects
+
+
+// 2️⃣ WHY Object() IS RARELY USED
+const a = {};
+const b = new Object();
+
+// Same thing, but:
+// {} is cleaner, more readable, and idiomatic JS
+// So we avoid Object() specifically, not constructors in general.
+
+
+// 3️⃣ CONSTRUCTORS ARE STILL EVERYWHERE (JUST HIDDEN)
+// You already use constructors all the time without realizing:
+// []          // new Array()
+// {}          // new Object()
+// "hi"        // new String() (wrapper when needed)
+// JS just gives you nicer syntax.
+
+
+// 4️⃣ WHERE DEFENSIVE PROGRAMMING COMES IN
+// Constructors like Object(value) are useful when:
+// - input type is unknown
+// - data comes from users / APIs / external sources
+// - you want guarantees
+// Object(value); // ensures "this is now an object"
+
+
+/* ========================================
+   FINAL MENTAL MODEL
+   ======================================== */
+// Object literals {} → daily use, readable
+// Constructors (new Something) → structure, patterns, guarantees
+// Object(value) → defensive conversion, not creation
