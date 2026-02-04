@@ -191,3 +191,46 @@ console.log(jsonData[key]);  // "Alice"
 
 // MENTAL MODEL
 // JSON = for data transfer; dot is convenient, bracket is flexible
+
+
+/* ========================================
+   JSON.stringify()
+   ======================================== */
+// When you use it:
+// When you want to send or store data (APIs, localStorage, files, network).
+
+// Example:
+const user = { name: "John", age: 30 };
+const jsonString = JSON.stringify(user);
+
+// What happens:
+// JS object (can't be sent easily) → JSON string (can be sent/stored)
+
+// Optional extras (good to know, not mandatory):
+// - Replacer: choose which properties to include
+// - Spacer: makes JSON readable (pretty-print)
+// Note: You usually don't need these for exams, just know they exist.
+
+
+/* ========================================
+   JSON.parse()
+   ======================================== */
+// When you use it:
+// When you receive JSON data and want to work with it in JavaScript.
+
+// Example:
+const jsonString2 = '{"name":"John","age":30}';
+const obj = JSON.parse(jsonString2);
+
+console.log(obj.name);  // "John"
+console.log(obj.age);   // 30
+
+// What happens:
+// JSON string (can't access properties easily) → JS object (obj.name, obj.age work)
+
+
+/* ========================================
+   MEMORY TRICK
+   ======================================== */
+// Stringify = send/store
+// Parse = receive/use
