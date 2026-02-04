@@ -123,8 +123,8 @@ const p = new Person("Alice");
 
 
 // 2️⃣ WHY Object() IS RARELY USED
-const a = {};
-const b = new Object();
+const area = {};
+const  brad = new Object();
 
 // Same thing, but:
 // {} is cleaner, more readable, and idiomatic JS
@@ -153,3 +153,41 @@ const b = new Object();
 // Object literals {} → daily use, readable
 // Constructors (new Something) → structure, patterns, guarantees
 // Object(value) → defensive conversion, not creation
+
+
+/* ========================================
+   JSON (JAVASCRIPT OBJECT NOTATION)
+   ======================================== */
+// JSON is used to send and transfer data between things like servers, APIs, and applications.
+// It's a data format, not executable code.
+// Once JSON is loaded into JavaScript, you access its data using:
+
+// DOT NOTATION → simpler, cleaner, when the key name is normal
+// Example:
+const jsonData = {
+  name: "Alice",
+  age: 30,
+  city: "NYC"
+};
+
+console.log(jsonData.name);  // "Alice"
+console.log(jsonData.age);   // 30
+
+// BRACKET NOTATION → more flexible, used for keys with spaces, special characters, or variables
+// Example:
+const jsonData2 = {
+  "first name": "Bob",
+  "age": 25,
+  "user-id": 12345
+};
+
+console.log(jsonData2["first name"]);  // "Bob" (can't use dot with spaces)
+console.log(jsonData2["age"]);         // 25
+console.log(jsonData2["user-id"]);     // 12345 (can't use dot with hyphens)
+
+// Using variables with bracket notation
+const key = "name";
+console.log(jsonData[key]);  // "Alice"
+
+// MENTAL MODEL
+// JSON = for data transfer; dot is convenient, bracket is flexible
