@@ -234,3 +234,187 @@ console.log(obj.age);   // 30
    ======================================== */
 // Stringify = send/store
 // Parse = receive/use
+
+/* ========================================
+   FINAL OVERVIEW: OBJECT BASICS
+   ======================================== */
+
+// DEFINITION OF AN OBJECT
+// An object is a data structure made up of properties.
+// A property consists of a key and a value.
+// Access data using dot notation or bracket notation.
+
+const person = {
+  name: "Alice",
+  age: 30,
+  city: "New York"
+};
+
+console.log(person.name);        // Alice
+console.log(person["name"]);     // Alice
+
+
+// SETTING PROPERTIES OF AN EXISTING OBJECT
+// Use dot notation or bracket notation with the assignment operator.
+
+const person2 = {
+  name: "Alice",
+  age: 30
+};
+
+person2.job = "Engineer";
+person2["hobby"] = "Knitting";
+console.log(person2); // {name: 'Alice', age: 30, job: 'Engineer', hobby: 'Knitting'}
+
+
+// REMOVING PROPERTIES FROM AN OBJECT
+// Use the delete operator to remove a property.
+
+const person3 = {
+  name: "Alice",
+  age: 30,
+  job: "Engineer"
+};
+
+delete person3.job;
+console.log(person3.job); // undefined
+
+
+// CHECKING IF AN OBJECT HAS A PROPERTY
+// Method 1: hasOwnProperty() - returns boolean
+
+const person4 = {
+  name: "Alice",
+  age: 30
+};
+
+console.log(person4.hasOwnProperty("name")); // true
+console.log(person4.hasOwnProperty("job")); // false
+
+// Method 2: in operator - returns true if property exists
+
+const person5 = {
+  name: "Bob",
+  age: 25
+};
+
+console.log("name" in person5); // true
+
+
+// ACCESSING PROPERTIES FROM NESTED OBJECTS
+// Chain dot notation or bracket notation to drill down.
+
+const person6 = {
+  name: "Alice",
+  age: 30,
+  contact: {
+    email: "alice@example.com",
+    phone: {
+      home: "123-456-7890",
+      work: "098-765-4321"
+    }
+  }
+};
+
+console.log(person6.contact.phone.work); // "098-765-4321"
+
+
+// PRIMITIVE vs NON-PRIMITIVE DATA TYPES RECAP
+// Primitives: numbers, strings, booleans, null, undefined, symbols
+//   - Single values
+//   - Not objects
+//   - Immutable (value cannot be changed after creation)
+// Non-Primitives: objects, arrays, functions
+//   - Can hold multiple values
+//   - Objects themselves
+//   - Can have properties and methods
+
+
+// OBJECT METHODS
+// Definition: Functions associated with an object
+// The 'this' keyword refers to the object itself
+
+const person7 = {
+  name: "Bob",
+  age: 30,
+  sayHello: function() {
+    return "Hello, my name is " + this.name;
+  }
+};
+
+console.log(person7.sayHello()); // "Hello, my name is Bob"
+
+
+// OBJECT CONSTRUCTOR
+// Definition: A special function used to create and initialize objects
+// Invoked with the 'new' keyword
+// The Object() constructor creates a new empty object.
+
+const emptyObj = new Object();
+
+
+// OPTIONAL CHAINING OPERATOR (?.)
+// Definition: Safely access object properties or call methods
+// without worrying whether they exist
+
+const user = {
+  name: "John",
+  profile: {
+    email: "john@example.com",
+    address: {
+      street: "123 Main St",
+      city: "Somewhere"
+    }
+  }
+};
+
+console.log(user.profile?.address?.street); // "123 Main St"
+console.log(user.profile?.phone?.number);   // undefined
+
+
+// OBJECT DESTRUCTURING
+// Definition: Extract values from objects and assign to variables
+// More concise and readable way
+
+const person8 = { name: "Alice", age: 30, city: "New York" };
+
+const { name, age } = person8;
+
+console.log(name); // Alice
+console.log(age);  // 30
+
+
+// WORKING WITH JSON
+// JSON = JavaScript Object Notation
+// Lightweight, text-based data format for exchanging data
+
+// JSON Example
+const jsonExample = {
+  "name": "Alice",
+  "age": 30,
+  "isStudent": false,
+  "list of courses": ["Mathematics", "Physics", "Computer Science"]
+};
+
+
+// JSON.stringify(): Convert JS object to JSON string
+// Useful for storing or transmitting data
+
+const user2 = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+const jsonString3 = JSON.stringify(user2);
+console.log(jsonString3); // '{"name":"John","age":30,"isAdmin":true}'
+
+
+// JSON.parse(): Convert JSON string back to JS object
+// Useful when retrieving data from servers or localStorage
+
+const jsonString4 = '{"name":"John","age":30,"isAdmin":true}';
+const userObject = JSON.parse(jsonString4);
+
+// Result: { name: 'John', age: 30, isAdmin: true }
+console.log(userObject);
