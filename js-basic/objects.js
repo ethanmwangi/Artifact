@@ -2,6 +2,10 @@
    PRIMITIVE vs NON-PRIMITIVE TYPES
    ======================================== */
 
+/* ========================================
+   PRIMITIVE vs NON-PRIMITIVE TYPES
+   ======================================== */
+
 // PRIMITIVES: Copied by value
 // Variables hold their own copy of the data
 // Changing the original does NOT affect the copy
